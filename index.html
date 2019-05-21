@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+
+<h2>T Ravi Kumar User Cards</h2>
+<p>Resize the browser window to see the effect.</p>
+
+<div class="row" id="authors">
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+
+  const config = {
+  'url': 'https://randomuser.me/api/',
+  'numberCards': 24
+};
+    function createNode(element) {
+      return document.createElement(element);
+  }
+
+  function append(parent, el) {
+    return parent.appendChild(el);
+  }
+
+  
+
+  const div = document.getElementById('authors');
+  var userCount=0;
+  //const url = 'https://randomuser.me/api/?results=10';
+  fetch(`${config.url}?results=${config.numberCards}`)
+  .then((resp) => resp.json())
+  .then(function(data) {
+    let authors = data.results;
+    return authors.map(function(author) {
+      let cldiv = createNode('div'),
+          cdiv= createNode('div')  
+          img = createNode('img'),
+          p = createNode('p');
+          btn= createNode('button');
+      img.src = author.picture.large;
+      gender=author.gender;
+      p.innerHTML = `${author.name.first} ${author.name.last}`;
+      btn.innerHTML="Call";
+      cldiv.setAttribute("class","column");
+      cdiv.setAttribute("class","card");
+      btn.setAttribute("class","btn");
+
+      if(gender!='female' && userCount<8)
+      {
+
+      append(cdiv, img);
+      append(cdiv, p);
+      append(cdiv, btn);
+      append(cldiv, cdiv);  
+      append(div, cldiv);
+      userCount++;   
+   
+     
+     }
+      
+
+    })
+  })
+  .catch(function(error) {
+    console.log(JSON.stringify(error));
+  });   
+
+
+  </script>
+
+</body>
+</html>

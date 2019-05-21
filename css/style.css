@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Float four columns side by side */
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .column p
+  {
+      font-size: 28px;
+  }
+  
+  /* Responsive columns */
+  
+  
+  @media (min-width: 1024px){
+    .column {
+      width: 25%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (min-width:700px)  and (max-width: 1023px)  {
+      .column {
+      width: 33%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (min-width:450px)  and (max-width: 699px) {
+      .column {
+      width: 50%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  @media (max-width:449px) {
+      .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    margin-top: 20px;
+    
+  }
+  
+  .btn {
+      background-color: #FFA500;
+      
+  
+  
+  
+      color:#fff;
+  padding:20px 100px;
+  border:none;
+  outline:none;
+  font-size:20px;
+  text-shadow:-2px 2px 0 rgba(0,0,0,0.2);
+  font-weight:700;
+  transition:all .1s linear;
+  
+  }
+  
+  img {
+    border-radius: 50%;
+  }
